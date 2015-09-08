@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
 import com.github.mrengineer13.snackbar.SnackBar;
 
 public class MainActivity extends AppCompatActivity implements SnackBar.OnMessageClickListener {
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements SnackBar.OnMessag
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -46,4 +48,5 @@ public class MainActivity extends AppCompatActivity implements SnackBar.OnMessag
     public void onMessageClick(Parcelable parcelable) {
 
     }
+
 }

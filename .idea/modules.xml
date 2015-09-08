@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Xgtc.iml" filepath="$PROJECT_DIR$/Xgtc.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xgtc.iml" filepath="$PROJECT_DIR$/xgtc.iml" />
     </modules>
   </component>
 </project>
