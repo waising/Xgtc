@@ -9,5 +9,7 @@ public class AppConfig {
     //bitmap 缓存地址
     public static final String BITMAP_PATH = APP_NAME + "/imageloader/Cache";
 
-
+    public static final String FENFA="FENFA";
+    public static final String QIANSHOU="QIANSHOU";
+    public static final String LANSHOU="LANSHOU";
 }
