@@ -19,7 +19,7 @@
         android:layout_width="@dimen/navdrawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="left"
-        android:background="@color/white"
+        android:background="@mipmap/menu_bg"
         android:choiceMode="singleChoice">
 
         <ListView

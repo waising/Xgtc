@@ -18,4 +18,11 @@
         <!--Window color-->
         <item name="android:windowBackground">@color/dim_foreground_material_dark</item>
     </style>
+
+    <style name="button_common_blue">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
 </resources>

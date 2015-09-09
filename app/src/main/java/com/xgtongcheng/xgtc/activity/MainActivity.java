@@ -1,25 +1,28 @@
-package com.xgtongcheng.xgtc;
+package com.xgtongcheng.xgtc.activity;
 
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.internal.widget.AdapterViewCompat;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.github.mrengineer13.snackbar.SnackBar;
+import com.xgtongcheng.xgtc.AppConfig;
+import com.xgtongcheng.xgtc.R;
 import com.xgtongcheng.xgtc.adapter.MenuAdapter;
 import com.xgtongcheng.xgtc.adapter.model.MenuModel;
+import com.xgtongcheng.xgtc.common.util.AUtil;
+import com.xgtongcheng.xgtc.common.util.SBar;
+import com.xgtongcheng.xgtc.fragment.ChaxunFragment;
 import com.xgtongcheng.xgtc.fragment.FenfaFragment;
 import com.xgtongcheng.xgtc.fragment.LanshouFragment;
 import com.xgtongcheng.xgtc.fragment.QianshouFragment;
@@ -28,9 +31,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+import butterknife.BindString;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements SnackBar.OnMessageClickListener {
+public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
 
@@ -40,6 +44,15 @@ public class MainActivity extends AppCompatActivity implements SnackBar.OnMessag
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
+
+    @BindString(R.string.lanshou)
+    String lanshou;
+    @BindString(R.string.fenfa)
+    String fenfa;
+    @BindString(R.string.qianshou)
+    String qianshou;
+    @BindString(R.string.chaxun)
+    String chaxun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +82,10 @@ public class MainActivity extends AppCompatActivity implements SnackBar.OnMessag
 
         menuList=new ArrayList<MenuModel>();
 
-        menuList.add(new MenuModel(R.mipmap.ic_launcher, "揽收",AppConfig.LANSHOU));
-        menuList.add(new MenuModel(R.mipmap.ic_launcher, "分发",AppConfig.FENFA));
-        menuList.add(new MenuModel(R.mipmap.ic_launcher, "签收",AppConfig.QIANSHOU));
+        menuList.add(new MenuModel(R.mipmap.lanshou, lanshou, AppConfig.LANSHOU));
+        menuList.add(new MenuModel(R.mipmap.fenfa, fenfa,AppConfig.FENFA));
+        menuList.add(new MenuModel(R.mipmap.qianshou, qianshou,AppConfig.QIANSHOU));
+        menuList.add(new MenuModel(R.mipmap.chaxun, chaxun,AppConfig.CHAXUN));
 
         menuAdapter=new MenuAdapter(this, menuList);
 
@@ -100,6 +114,8 @@ public class MainActivity extends AppCompatActivity implements SnackBar.OnMessag
                     case 2:
                         fragment = new QianshouFragment();
                         break;
+                    case 3:
+                        fragment = new ChaxunFragment();
                 }
 
                 fm.beginTransaction().add(R.id.fragment_layout, fragment,menuList.get(position).getFragmentTag()).commit();
@@ -130,13 +146,9 @@ public class MainActivity extends AppCompatActivity implements SnackBar.OnMessag
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            new SnackBar.Builder(this)
-                    .withOnClickListener(MainActivity.this)
-                    .withMessage("This library is awesome!") // OR
-                    .show();
+            SBar.showActionLong("111", this);
             return true;
         }
 
@@ -144,7 +156,12 @@ public class MainActivity extends AppCompatActivity implements SnackBar.OnMessag
     }
 
     @Override
-    public void onMessageClick(Parcelable parcelable) {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
 
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            AUtil.exitBy2Click(this);
+        }
+        return false;
     }
+
 }

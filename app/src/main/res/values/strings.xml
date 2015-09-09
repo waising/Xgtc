@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Xgtc</string>
+    <string name="app_name">星光同城</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -8,8 +8,12 @@
     <string name="drawer_close">close</string>
 
 <!-- TODO: Remove or change this placeholder text -->
-    <string name="lanshou_fragment">lanshou fragment</string>
-    <string name="qianshou_fragment">qianshou fragment</string>
-    <string name="fenfa_fragment">fenfa fragment</string>
+    <string name="lanshou">揽收快件</string>
+    <string name="qianshou">签收快件</string>
+    <string name="fenfa">分发快件</string>
+    <string name="chaxun">查询快件</string>
+
+    <!--login-->
+    <string name="login">登录</string>
 
 </resources>

@@ -12,4 +12,5 @@ public class AppConfig {
     public static final String FENFA="FENFA";
     public static final String QIANSHOU="QIANSHOU";
     public static final String LANSHOU="LANSHOU";
+    public static final String CHAXUN="CHAXUN";
 }
