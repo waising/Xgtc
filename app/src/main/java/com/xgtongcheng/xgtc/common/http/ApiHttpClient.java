@@ -10,11 +10,11 @@ import com.loopj.android.http.RequestParams;
 public class ApiHttpClient {
 
     public final static String HOST = "www.wubo.rocks";
-    private static String API_URL = "http://api.wubo.rocks/api/%s";
-    private static String API_PIC_URL = "http://img.wubo.rocks/common/%s";
+//    private static String API_URL = "http://api.wubo.rocks/api/%s";
+//    private static String API_PIC_URL = "http://img.wubo.rocks/common/%s";
 //    public final static String HOST = "192.168.1.90";
-//    private static String API_URL = "http://192.168.1.73:8086/api/%s";//1.71:8080//3.106:8080
-//    public static String API_PIC_URL = "http://192.168.1.90:801/common/%s";
+    private static String API_URL = "http://192.168.1.105:8086/%s";
+    public static String API_PIC_URL = "http://192.168.1.105:8086/common/%s";
     public static final String DELETE = "DELETE";
     public static final String GET = "GET";
     public static final String POST = "POST";

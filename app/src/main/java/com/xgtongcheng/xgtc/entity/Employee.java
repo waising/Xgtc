@@ -1,0 +1,57 @@
+package com.xgtongcheng.xgtc.entity;
+
+/**
+ * Created by WWX on 2015/9/1.
+ */
+public class Employee {
+
+    private String id;
+
+    /**
+     * 工号
+     */
+    private String jobNo;
+
+    /**
+     * 姓名
+     */
+    private String name;
+
+    /**
+     * 密码
+     */
+    private String password;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getJobNo() {
+        return jobNo;
+    }
+
+    public void setJobNo(String jobNo) {
+        this.jobNo = jobNo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+}

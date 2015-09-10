@@ -15,7 +15,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.github.mrengineer13.snackbar.SnackBar;
 import com.xgtongcheng.xgtc.AppConfig;
 import com.xgtongcheng.xgtc.R;
 import com.xgtongcheng.xgtc.adapter.MenuAdapter;
@@ -62,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
         menuLayout = (RelativeLayout) findViewById(R.id.menu_rellayout);
 
-        toolbar.inflateMenu(R.menu.menu_main);
+        //去掉菜单
+//        toolbar.inflateMenu(R.menu.menu_main);
         setSupportActionBar(toolbar);
         // 打開 up bottom
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -107,15 +107,20 @@ public class MainActivity extends AppCompatActivity {
                 switch (position){
                     case 0:
                         fragment = new LanshouFragment();
+                        getSupportActionBar().setTitle(lanshou);
                         break;
                     case 1:
                         fragment = new FenfaFragment();
+                        getSupportActionBar().setTitle(fenfa);
                         break;
                     case 2:
                         fragment = new QianshouFragment();
+                        getSupportActionBar().setTitle(qianshou);
                         break;
                     case 3:
                         fragment = new ChaxunFragment();
+                        getSupportActionBar().setTitle(chaxun);
+                        break;
                 }
 
                 fm.beginTransaction().add(R.id.fragment_layout, fragment,menuList.get(position).getFragmentTag()).commit();
@@ -131,28 +136,6 @@ public class MainActivity extends AppCompatActivity {
 
             mDrawerLayout.closeDrawers();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            SBar.showActionLong("111", this);
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

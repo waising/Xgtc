@@ -11,16 +11,16 @@ public class XgtcApi {
     /**
      * 登录
      *
-     * @param username
-     * @param password
+     * @param jobno
+     * @param pwd
      * @param handler
      */
-    public static void login(String username, String password,
+    public static void login(String jobno, String pwd,
                              AsyncHttpResponseHandler handler) {
         RequestParams params = new RequestParams();
-        params.put("username", username);
-        params.put("password", password);
-        ApiHttpClient.post("login", params, handler);
+        params.put("jobno", jobno);
+        params.put("pwd", pwd);
+        ApiHttpClient.post("employee/login", params, handler);
     }
 
 }
