@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         // 打開 up bottom
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        toolbar.setTitleTextColor(0xffffffff);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         // 實作 drawer toggle 並放入 toolbar
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);

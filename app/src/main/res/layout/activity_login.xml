@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:width="@dimen/login_button_width"
                 android:layout_gravity="right"
-                android:text="@string/btn_login"
+                android:text="@string/login"
                 android:textColor="@color/tomato"/>
         </LinearLayout>
 </RelativeLayout>
