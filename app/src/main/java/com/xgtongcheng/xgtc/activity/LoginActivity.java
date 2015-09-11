@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.github.mrengineer13.snackbar.SnackBar;
@@ -61,13 +62,14 @@ public class LoginActivity extends AppCompatActivity {
     @OnClick(R.id.btn_login)
     void onLoginClick(){
 
+        if (!check()) return;
 
         XgtcApi.login(usernameEditText.getText().toString().trim(), pwdEditText.getText().toString().trim(), new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 Gson gson = new Gson();
                 try {
-                    Employee employee = gson.fromJson(new String(responseBody,"utf-8"),Employee.class);
+                    Employee employee = gson.fromJson(new String(responseBody, "utf-8"), Employee.class);
 
                     String x = employee.getId();
                     String b = employee.getJobNo();
@@ -84,9 +86,21 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                SBar.showLong("网络异常",LoginActivity.this);
+                SBar.showLong("网络异常", LoginActivity.this);
             }
         });
 
+    }
+
+    boolean check(){
+        boolean isOk=true;
+        if (TextUtils.isEmpty(usernameEditText.getText().toString())) {
+            usernameEditText.setError(getString(R.string.username_no_empty));
+            isOk = false;
+        }else if(TextUtils.isEmpty(pwdEditText.getText().toString())){
+            pwdEditText.setError(getString(R.string.password_no_empty));
+            isOk = false;
+        }
+        return isOk;
     }
 }
